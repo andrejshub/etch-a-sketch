@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let popup = document.getElementById("popup");
     popup.addEventListener("click", () => {
-       
+       let numDiv = sizing();
+       makeGrid(numDiv);
     })
 })
 
@@ -25,6 +26,17 @@ function makeGrid (num){
 
 function sizing(){
     let inputNum = prompt("Please enter grid size");
-    
+    let message = document.getElementById("message");
+
+    if(inputNum == ""){
+        message.innerHTML = "Please enter a number";
+    } 
+     else if(inputNum <= 0 || inputNum > 100){
+        message.innerHTML = "Please enter a number between 1 and 100";
+    } 
+    else{
+        message.innerHTML = "Grid size changed";
+        return inputNum;
+    }
 
 }

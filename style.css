@@ -11,6 +11,14 @@ body {
     
 }
 
+#message {
+    width: 400px;
+    height: 30px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: center;
+}
+
 #selectText {
     margin-top: 7px;
     width: 140px;
