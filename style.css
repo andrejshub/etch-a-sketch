@@ -34,4 +34,9 @@ body {
 
 .footer {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 400px;
+    margin-bottom: 30px;
 }
+

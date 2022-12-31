@@ -1,3 +1,5 @@
+let color = "black";
+
 document.addEventListener("DOMContentLoaded", function(){
     makeGrid(16);
     let contain = document.querySelector(".contain");
@@ -22,9 +24,7 @@ function makeGrid (num){
     for (i = 0; i < numDivs; i++){
         let div = document.createElement("div");
         div.setAttribute("id", "innerDivs");
-        div.addEventListener("mouseover", function(){
-            div.style.backgroundColor = "black";
-        })
+        div.addEventListener("mouseover", colorDiv);
         contain.insertAdjacentElement("beforeend", div);
     }
 }
@@ -45,6 +45,22 @@ function sizing(){
     }
 
 }
+
+function colorPick(colorChoice) {
+    color = colorChoice;
+    
+}
+
+function colorDiv(){
+    if(color == "random") {
+        this.style.backgroundColor = `hsl(${Math.random() *360}, 100%, 50%)`
+    } 
+    else {
+        this.style.backgroundColor = "black";
+    }
+}
+
+
 
 function resetBoard (){
     let divs = document.querySelectorAll("#innerDivs");
