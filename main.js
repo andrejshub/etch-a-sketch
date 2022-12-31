@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", function(){
     makeGrid(16);
+    let contain = document.querySelector(".contain");
 
     let popup = document.getElementById("popup");
     popup.addEventListener("click", () => {
        let numDiv = sizing();
+       resetBoard();
        makeGrid(numDiv);
     })
+
 })
 
 function makeGrid (num){
@@ -18,8 +21,10 @@ function makeGrid (num){
 
     for (i = 0; i < numDivs; i++){
         let div = document.createElement("div");
-        
-        
+        div.setAttribute("id", "innerDivs");
+        div.addEventListener("mouseover", function(){
+            div.style.backgroundColor = "black";
+        })
         contain.insertAdjacentElement("beforeend", div);
     }
 }
@@ -39,4 +44,9 @@ function sizing(){
         return inputNum;
     }
 
+}
+
+function resetBoard (){
+    let divs = document.querySelectorAll("#innerDivs");
+    divs.forEach(((div) => div.style.backgroundColor = "white"));
 }
